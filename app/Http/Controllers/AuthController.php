@@ -3,15 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function login()
+    public function register_in(Request $request)
     {
-        return view('galeri.auth.login');
+    $validator = Validator::make($request->all(), [
+        'username' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users,email',
+        'password' => 'required|string|min:8|confirmed',
+        'telepon' => 'required|string|',
+        'alamat' => 'required|string|max:255',
+    ]);
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
-    public function register()
+
+    // dd($request->all());
+
+    $user = User::create([
+        'username' => $request->input('username'),
+        'email' => $request->input('email'),
+        'password' => Hash::make($request->input('password')),
+        'telepon' => $request->input('telepon'),
+        'alamat' => $request->input('alamat'),
+    ]);
+        return redirect()->route('login');
+    }
+
+    public function login_in(Request $request)
     {
-        return view('galeri.auth.register');
+        $login = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|password',
+        ]);
+
+        if (Auth::attempt($login)) {
+            $request->session()->regenerate();
+            return redirect()->intended('dashboard')->with('success', 'Welcome!');
+        }
+
+        return back()->withErrors([
+            'email' => 'authentikasi tidak sesuai!',
+
+        ])->onlyInput('email');
     }
 }

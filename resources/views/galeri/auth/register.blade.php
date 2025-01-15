@@ -1,28 +1,60 @@
 @extends('layouts.app')
 
-@section('title', 'register')
 @section('content')
-<div>
-    <form action="{{ route('register) }}" method="post">
-        <div>
-            <input type="username" name="username" id="" placeholder="username">
-        </div>
-        <div>
-            <input type="email" name="email" id="" placeholder="email">
-        </div>
-        <div>
-            <input type="password" name="password" id="" placeholder="password">
-        </div>
-        <div>
-            <input type="telepon" name="telepon" id="" placeholder="telepon">
-        </div>
-        <div>
-            <input type="alamat" name="alamat" id="" placeholder="alamat">
-        </div>
-        <div>
-            <button type="submit">register</button>
-        </div>
-    </form>
+<div class="container">
+    <h2>Register</h2>
+    <form action="{{ route('register_in') }}" method="POST">
+        @csrf
 
+        <!-- Nama -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Username</label>
+            <input type="text" name="username" id="name" class="form-control" value="{{ old('name') }}" required>
+            @error('name')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required>
+            @error('email')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="telepon" class="form-label">Telepon</label>
+            <input type="text" name="telepon" id="telepon" class="form-control" required>
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="alamat" class="form-label">alamat</label>
+            <textarea name="alamat" id="" cols="30" rows="10"></textarea>
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-primary">Daftar</button>
+    </form>
 </div>
 @endsection
