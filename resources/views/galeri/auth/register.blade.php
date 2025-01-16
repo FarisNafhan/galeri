@@ -48,12 +48,11 @@
 
         <div class="mb-3">
             <label for="alamat" class="form-label">alamat</label>
-            <textarea name="alamat" id="" cols="30" rows="10"></textarea>
+            <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
             @error('password')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-
         <button type="submit" class="btn btn-primary">Daftar</button>
     </form>
     <a href="{{ route('log_in') }}"><button>back</button></a>
