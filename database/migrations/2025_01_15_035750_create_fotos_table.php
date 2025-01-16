@@ -15,7 +15,6 @@ return new class extends Migration
             $table->bigIncrements('FotoID');
             $table->string('Judul');
             $table->text('Deskripsi');
-            $table->date('Tanggal');
             $table->string('LokasiFile');
             $table->unsignedBigInteger('AlbumID');
             $table->foreign('AlbumID')->references('AlbumID')->on('albums')->onDelete('cascade');   

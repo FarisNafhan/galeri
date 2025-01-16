@@ -56,5 +56,6 @@
 
         <button type="submit" class="btn btn-primary">Daftar</button>
     </form>
+    <a href="{{ route('log_in') }}"><button>back</button></a>
 </div>
 @endsection

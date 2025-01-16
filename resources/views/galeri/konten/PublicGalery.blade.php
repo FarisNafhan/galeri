@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <div>
-        Dashboard
+        
     </div>
 </div>
 @endsection

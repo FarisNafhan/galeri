@@ -8,6 +8,7 @@
 </head>
 <body>
     @include('partials.navbar')
+    @include('partials.album')
     <div class="container">
         @yield('content')
     </div>

@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Album extends Model
+class foto extends Model
 {
-    protected $table = "albums";
+    protected $table = "fotos";
 
     protected $fillable = [
-        'nama',
+        'judul',
         'deskripsi',
-        'tanggal',
-        'UserID',
     ];
 }

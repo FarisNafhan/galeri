@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <div>
-        Dashboard
+        <input type="image" src="" alt="">
     </div>
 </div>
 @endsection

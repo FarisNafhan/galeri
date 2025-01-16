@@ -5,6 +5,8 @@
     /* padding: 0 10px; */
     /* background-color: aqua; */
 }
+
+/* navbar */
 * {
     margin: 0;
     padding: 0;
@@ -90,4 +92,55 @@ body {
     .burger {
         display: flex;
     }
+}
+/* navbar end */
+
+/* foto */
+.foto-container{
+    width: 255px;
+    height: 342px;
+}
+.bg-foto{
+    background-color: #6e6e6e;
+}
+.foto{
+    width: 230px;
+    height: 320px;
+}
+
+/* tabel */
+.tabel-foto{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    border-radius: 10%;
+}
+.tabel-foto thead{
+    background-color: lightsteelblue;
+}
+.tabel-foto thead th{
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    border-bottom: 2px solid #494949;
+}
+.tabel-foto tbody{
+    background-color: #fff;
+}
+.tabel-foto tbody td{
+    
+}
+.tabel-foto{
+    
+}
+.tabel-foto{
+    
+}
+.tabel-foto{
+    
+}
+.tabel-foto{
+    
 }
